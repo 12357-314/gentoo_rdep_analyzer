@@ -73,7 +73,7 @@ But first, the `emerge_rdeps.py` file must be created.
 emerge --pretend --verbose --emptytree --depclean > ~/emerge_rdeps.txt
 ```
 
-Or a virtual environment can be created to install the package to. 
+Or a virtual environment can be created to install the package into. 
 
 ```
 cd gentoo_rdep_analyzer
@@ -142,7 +142,7 @@ in the last dependency. It does this repeatedly until the ends of the tree are
 found and then outputs the results in an indented tree-like format. 
 
 The parser uses the package manager specifications
-((PMS)[https://dev.gentoo.org/~ulm/pms/head/pms.pdf]) from Gentoo. 
+([PMS](https://dev.gentoo.org/~ulm/pms/head/pms.pdf)) from Gentoo. 
 
 # Advantages
 

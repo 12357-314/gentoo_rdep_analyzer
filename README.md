@@ -174,8 +174,8 @@ Or open an issue.
 
 # TODO Status
 
-- Add an ebuild for packaging with Gentoo: No progress, not being worked on.
-- Add tests for the remaining functions in the project: Slowly being added.
-- Consider splitting the large source file into multiple modules: Not being worked on. 
-
-- Consider splitting the large test file into multiple modules: Not being worked on. 
+- Add an ebuild for packaging with Gentoo: No solution being developed. 
+- Add tests for the remaining functions in the project: Solution progressing. 
+- Consider splitting the large source file into multiple modules: No solution being developed. 
+- Consider splitting the large test file into multiple modules: No solution being developed. 
+- Add check to ensure detected USE flags are also enabled on the system: No solution being developed. 

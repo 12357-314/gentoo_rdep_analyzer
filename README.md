@@ -64,13 +64,23 @@ No install mechanism currently exists.
 Run the `gentoo_rdep_analyzer` module located inside the cloned git repository. 
 
 ```
-python -m gentoo_rdep_analyer ~/emerge_rdeps.txt
+python -m gentoo_rdep_analyer.src.gentoo_rdep_analyzer ~/emerge_rdeps.txt
 ```
 
 But first, the `emerge_rdeps.py` file must be created. 
 
 ```
 emerge --pretend --verbose --emptytree --depclean > ~/emerge_rdeps.txt
+```
+
+Or a virtual environment can be created to install the package to. 
+
+```
+cd gentoo_rdep_analyzer
+python -m venv venv
+pip install -e .
+emerge --pretend --verbose --emptytree --depclean > ./emerge_rdeps.txt
+python -m gentoo_rdep_analyzer ./emerge_rdeps.txt
 ```
 
 If the `emerge_rdeps` file is not provided, the script will run the command in

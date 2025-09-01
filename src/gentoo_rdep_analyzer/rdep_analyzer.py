@@ -1256,7 +1256,3 @@ def main():
     rdeps = Rdeps(filepath)
     triggers = Triggers(rdeps)
     triggers.print()
-
-
-if __name__ == '__main__':
-    main()

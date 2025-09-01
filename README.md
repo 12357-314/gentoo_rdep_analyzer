@@ -78,6 +78,7 @@ Or a virtual environment can be created to install the package to.
 ```
 cd gentoo_rdep_analyzer
 python -m venv venv
+source venv/bin/activate
 pip install -e .
 emerge --pretend --verbose --emptytree --depclean > ./emerge_rdeps.txt
 python -m gentoo_rdep_analyzer ./emerge_rdeps.txt

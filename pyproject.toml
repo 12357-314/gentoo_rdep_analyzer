@@ -1,0 +1,3 @@
+[project]
+name = "gentoo_rdep_analyzer"
+version = "0.2.0"

@@ -35,57 +35,11 @@ doesn't result in the atom being installed and the atom should not be listed in
 the output.
 
 While there is an official portage python module which has some [source
-documentation](https://dev.gentoo.org/~zmedico/portage/doc/api/), there is
-[almost zero usage
-documentation](https://forums.gentoo.org/viewtopic-t-1168219-highlight-portage+python+api.html).
-There is no way to determine how the components are meant to interact with each
-other.
-
-For example:
-
-```
-python
-
->>> import portage
->>> help(portage.dep.dep_check.dep_check)
-
-Help on function dep_check in module portage.dep.dep_check:
-
-dep_check(
-    depstring,
-    mydbapi,
-    mysettings,
-    use='yes',
-    mode=None,
-    myuse=None,
-    use_cache=1,
-    use_binaries=0,
-    myroot=None,
-    trees=None
-)
-    Takes a depend string, parses it, and selects atoms.
-    The myroot parameter is unused (use mysettings['EROOT'] instead). 
-
-```
-
-Of course, this function selects atoms and does not parse a dependency string
-(a function that does simply parse dependency strings could not be found in
-time), so it does not help here, but it is a good example. While the
-`depstring` parameter can be provided easily, the it is unclear what should be
-provided as the `mysettings` and `mydbapi` parameters. As far as I know, the
-only documentation for finding this information can only be obatined by reverse
-engineering the existing source code. The portage module source documentation
-can be found [online](https://dev.gentoo.org/~zmedico/portage/doc/api/). There
-is [one project](https://gitlab.com/apinsard/appi) that attempts to address the
-limitations with portage documentation, but it appears to be abandoned. This
-could be an intentional decision from the developers to provide a knowledge
-threshold for new contributors so that new contributors cannot shift the
-project in another direction or provide low quality commits, but it is more
-likely due to resource constraints. Writing documentation takes significant
-time and effort that may could not be justified for something that is primarily
-used only as an internal tool. This could be sort of ironic though because one
-can imgaine that good documentation could attract more developers that could
-assist the current team.
+documentation](https://dev.gentoo.org/~zmedico/portage/doc/api/), there appears
+to be [almost zero usage
+documentation](https://forums.gentoo.org/viewtopic-t-1168219-highlight-portage+python+api.html)
+which makes it very difficult to know how these components are meant to
+interact with each other.
 
 The solution used with this project is to parse the required information from a
 few command line utilities and extracting the desired information. This
@@ -125,7 +79,8 @@ output in a file can be quicker.
 
 # Documentation
 
-There is no documentation beyond the README file at this time. 
+There is no significant documentation beyond the README file at this time other
+than snippets in the `docs` folder. 
 
 Open an issue or send an email to request any additional details about the
 program. Contact information is at the end of the `README.md` file. 
@@ -149,7 +104,7 @@ python -m pytest
 > NOTE: Only the parser and a few other parts of the code have tests written
 > for them. 
 
-# Development
+# Program Overview
 
 The program works by parsing the output from the following emerge command to
 get the dependees of all installed atoms. The output is provided via a
@@ -177,19 +132,6 @@ found and then outputs the results in an indented tree-like format.
 
 The parser uses the package manager specifications
 ((PMS)[https://dev.gentoo.org/~ulm/pms/head/pms.pdf]) from Gentoo. 
-
-## Development Environment
-
-Clone the git repository. 
-
-```
-git clone https://github.com/12357-314/gentoo_rdep_analyzer.git
-```
-
-Source files are under `gentoo_rdep_analyzer/src/gentoo_rdep_analyzer/`. Test
-files are under `gentoo_rdep_analyzer/tests/`.
-
-Add features to the code. 
 
 # Advantages
 
